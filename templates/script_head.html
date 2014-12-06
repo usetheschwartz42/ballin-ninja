@@ -4,8 +4,13 @@ $('#navTabs a[href="#home"]').click(function(e) {
 $('#navTabs a[href="#song"]').click(function(e) {
 	$(this).tab('show');
 });
-data = [
+albumData = [
 	{% for song in songs %}
 	"{{ '/static/music/' + song['album'] + '/' + song['album'] + '.jpg' }}",
+	{% endfor %}
+];
+songData = [
+  {% for song in songs %}
+	"{{ '/static/music/' + song['album'] + '/' + song['name'] + '.mp3' }}",
 	{% endfor %}
 ];

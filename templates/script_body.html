@@ -1,14 +1,23 @@
 $(function() {
-  setInterval(cycleArt, 1000);
-});
-index = 0;
-currentArt = $('img.albumArt');
-cycleArt = function() {
-  for(index = 0, index < 9, index++) {
-    cycle = Math.floor((Math.random() * {{numSongs}}) + 1);
-    $('img.albumArt').fadeOut();
-    .attr('src', data[cycle]);
-    .fadeIn();
-    index++;
+  for(i=0;i<9;i++) {
+    $('img.albumArt').eq(i).attr("id", i);
   }
-};
+  setInterval(cycleArt, 7000);
+});
+wait = 200;
+cycleArt = function() {
+  for(i=0;i<9;i++) {
+    cycle = Math.floor((Math.random() * {{numSongs}}) + 1);
+    $('img.albumArt').eq(i).fadeOut(450);
+    $('img.albumArt').eq(i).attr('src', albumData[cycle]);
+    $('img.albumArt').eq(i).find("meta").attr("id", String(cycle))
+    $('img.albumArt').eq(i).fadeIn(450);
+  }
+}
+{% for i in range(9) %}
+$('img.albumArt #{{i}}').click(function() {
+  id = $(this).find("meta[id='{{i}}']").attr("id").content();
+  $("#audioSource").attr("src", songData[id]);
+  $("#cover").attr("src", albumData[id]);
+});
+{% endfor %}
