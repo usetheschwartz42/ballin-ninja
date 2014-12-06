@@ -1,0 +1,11 @@
+<div role="tabpanel" class="tab-pane fade in active" id="home">
+	{% for i in range(3) %}
+	<section class="row">
+		{% for song in songs %}
+		<div class="col-sm-3">
+			<img src="{{ '/static/music/' + song['album'] + '/' + song['album'] + '.jpg' }}" height="192" width="192" alt="{{ song['name'] }}" class="img-rounded albumArt" id="{{ loop.index }}"/>
+		</div>
+		{% endfor %}
+	</section>
+	{% endfor %}
+</div>

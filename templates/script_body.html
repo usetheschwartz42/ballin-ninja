@@ -1,0 +1,14 @@
+$(function() {
+  setInterval(cycleArt, 1000);
+});
+index = 0;
+currentArt = $('img.albumArt');
+cycleArt = function() {
+  for(index = 0, index < 9, index++) {
+    cycle = Math.floor((Math.random() * {{numSongs}}) + 1);
+    $('img.albumArt').fadeOut();
+    .attr('src', data[cycle]);
+    .fadeIn();
+    index++;
+  }
+};

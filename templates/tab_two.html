@@ -1,0 +1,20 @@
+<div role="tabpanel" class="tab-pane fade" id="song">
+	<section class="row">
+		<div class="col-md-6">
+			<img src="{{ '/static/music/' + songs[currentSong]['album'] + '/' + songs[currentSong]['album'] + '.jpg' }}" height="256" width="256" class="img-rounded"/>
+		</div>
+		<audio id="audioPlayer">
+			<source src="{{ '/static/music/' + songs[currentSong]['album'] + '/' + songs[currentSong]['name'] + '.mp3' }}" type="audio/mpeg"/>
+		</audio>
+	</section>
+	<section class="row">
+		<section class="btn-group">
+			<div class="btn col-md-2">
+				<i class="glyphicon glyphicon-play" onclick="document.getElementById('audioPlayer').play();"></i>
+			</div>
+			<div class="btn col-md-2">
+				<i class="glyphicon glyphicon-pause" onclick="document.getElementById('audioPlayer').pause();"></i>
+			</div>
+		</section>
+	</section>
+</div>

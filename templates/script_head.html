@@ -1,0 +1,11 @@
+$('#navTabs a[href="#home"]').click(function(e) {
+	$(this).tab('show');
+});
+$('#navTabs a[href="#song"]').click(function(e) {
+	$(this).tab('show');
+});
+data = [
+	{% for song in songs %}
+	"{{ '/static/music/' + song['album'] + '/' + song['album'] + '.jpg' }}",
+	{% endfor %}
+];
