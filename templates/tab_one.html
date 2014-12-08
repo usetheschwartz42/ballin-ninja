@@ -3,7 +3,7 @@
 	<section class="row">
 		{% for song in songs %}
 		<div class="col-sm-3">
-			<img src="{{ '/static/music/' + song['album'] + '/' + song['album'] + '.jpg' }}" height="192" width="192" alt="{{ song['name'] }}" class="img-rounded albumArt" data-toggle="popover" data-placement="right" data-container="body" data-content="{{song['name'] + ' by ' + song['artist'] + ', from the album ' + song['album'] + '.'}}">
+			<img src="{{ '/static/music/' + song['album'] + '/' + song['album'] + '.jpg' }}" height="192" width="192" alt="{{ song['name'] }}" class="img-rounded albumArt" data-toggle="tooltip" data-placement="right" data-container="body" data-content="{{song['name'] + ' by ' + song['artist'] + ', from the album ' + song['album'] + '.'}}">
 				<meta name="{{song['id']}}" id=""/>
 			</img>
 		</div>

@@ -21,7 +21,7 @@ cycleArt = function() {
     $('img.albumArt').eq(i).fadeOut(300);
 	$('img.albumArt').eq(i).tooltip('hide');
     $('img.albumArt').eq(i).attr('src', albumData[cycle]);
-	$('img.albumArt').eq(i).attr('data-original-title', title)
+	$('img.albumArt').eq(i).attr('data-content', title)
 	$('img.albumArt').eq(i).tooltip('fixTitle')
     $('img.albumArt').eq(i).siblings("meta").attr("name", String(cycle));
     $('img.albumArt').eq(i).fadeIn(450);
