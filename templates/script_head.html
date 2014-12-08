@@ -14,3 +14,18 @@ songData = [
 	"{{ '/static/music/' + song['album'] + '/' + song['name'] + '.mp3' }}",
 	{% endfor %}
 ];
+songName = [
+	{% for song in songs %}
+	"{{song['name']}}",
+	{% endfor %}
+];
+albumName = [
+	{% for song in songs %}
+	"{{song['album']}}",
+	{% endfor %}
+];
+artistName = [
+	{% for song in songs %}
+	"{{song['artist']}}",
+	{% endfor %}
+];

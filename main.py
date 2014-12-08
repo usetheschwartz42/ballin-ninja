@@ -26,9 +26,9 @@ def assets(asset):
 songs = []
 
 #Song Dictionaries
-songOne = {'name': 'Song One', 'album': 'Test', 'id': 0}
-songTwo = {'name': 'Song Two', 'album': 'Strings', 'id': 1}
-songThree = {'name': 'Song Three', 'album': 'Test', 'id': 2}
+songOne = {'name': 'Song One', 'album': 'Test', 'artist': 'Aspect', 'id': 0}
+songTwo = {'name': 'Song Two', 'album': 'Strings', 'artist': 'Aspect', 'id': 1}
+songThree = {'name': 'Song Three', 'album': 'Test', 'artist': 'Aspect', 'id': 2}
 
 songs.append(songOne)
 songs.append(songTwo)

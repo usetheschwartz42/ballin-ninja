@@ -1,23 +1,30 @@
 $(function() {
-  for(i=0;i<9;i++) {
-    $('img.albumArt').eq(i).attr("id", i);
-  }
-  setInterval(cycleArt, 7000);
+	for(var i=0;i<9;i++) {
+		$('img.albumArt').eq(i).siblings("meta").attr("id", String(i));
+	}
+	{% for i in range(9) %}
+		$('meta#{{i}}').siblings("img.albumArt").click(function() {
+		idx = $("meta#{{i}}").attr("name");
+		$("source#audioSource").attr("src", songData[idx]);
+		$("audio#audioPlayer").load();
+		$("img#cover").attr("src", albumData[idx]);
+	});
+	{% endfor %}
+	$('[data-toggle="tooltip"]').tooltip();
+	setInterval(cycleArt, 7000);
 });
-wait = 200;
+
 cycleArt = function() {
   for(i=0;i<9;i++) {
     cycle = Math.floor((Math.random() * {{numSongs}}) + 1);
-    $('img.albumArt').eq(i).fadeOut(450);
+	title = songName[cycle] + ' by ' + artistName[cycle] + ', from the album ' + artistName[cycle] + '.';
+    $('img.albumArt').eq(i).fadeOut(300);
+	$('img.albumArt').eq(i).tooltip('hide');
     $('img.albumArt').eq(i).attr('src', albumData[cycle]);
-    $('img.albumArt').eq(i).find("meta").attr("id", String(cycle))
+	$('img.albumArt').eq(i).attr('data-original-title', title)
+	$('img.albumArt').eq(i).tooltip('fixTitle')
+    $('img.albumArt').eq(i).siblings("meta").attr("name", String(cycle));
     $('img.albumArt').eq(i).fadeIn(450);
+	$('img.albumArt').eq(i).tooltip('show');
   }
 }
-{% for i in range(9) %}
-$('img.albumArt #{{i}}').click(function() {
-  id = $(this).find("meta[id='{{i}}']").attr("id").content();
-  $("#audioSource").attr("src", songData[id]);
-  $("#cover").attr("src", albumData[id]);
-});
-{% endfor %}
