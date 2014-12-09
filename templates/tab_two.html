@@ -4,16 +4,18 @@
 			<img src="{{ '/static/music/' + songs[currentSong]['album'] + '/' + songs[currentSong]['album'] + '.jpg' }}" height="386" width="386" class="img-rounded" id="cover"/>
 		</div>
 		<audio id="audioPlayer">
-			<source src="{{ '/static/music/' + songs[currentSong]['album'] + '/' + songs[currentSong]['name'] + '.mp3' }}" type="audio/mpeg"/ id="audioSource">
+			<source src="{{ '/static/music/' + songs[currentSong]['album'] + '/' + songs[currentSong]['name'] + '.mp3' }}" type="audio/mpeg" id="audioSource">
 		</audio>
 	</section>
 	<section class="row">
 		<section class="btn-group">
-			<div class="btn col-md-2">
-				<i class="glyphicon glyphicon-play" onclick="document.getElementById('audioPlayer').play();"></i>
+			<div class="btn col-md-4 span4">
+				<i class="glyphicon glyphicon-play"></i>
 			</div>
-			<div class="btn col-md-2">
-				<i class="glyphicon glyphicon-pause" onclick="document.getElementById('audioPlayer').pause();"></i>
+		</section>
+		<section class="btn-group">
+			<div class="btn col-md-4 span4">
+				<i class="glyphicon glyphicon-pause"></i>
 			</div>
 		</section>
 	</section>
