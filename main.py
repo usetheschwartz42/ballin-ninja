@@ -1,7 +1,4 @@
 from flask import Flask, url_for, redirect, render_template
-import sys
-sys.path.append("./config/")
-from configurator import Configurator as Config
 
 app = Flask(__name__)
 
@@ -25,14 +22,23 @@ def assets(asset):
 #*********************Music Page***************************
 #
 
-#Song Config
-songs = Config("./config/songs.cfg").configs
+#Songs
+songs = []
+
+#Song Dictionaries
+songOne = {'name': 'Song One', 'album': 'Test', 'artist': 'Aspect', 'id': 0}
+songTwo = {'name': 'Song Two', 'album': 'Strings', 'artist': 'Aspect', 'id': 1}
+songThree = {'name': 'Song Three', 'album': 'Test', 'artist': 'Aspect', 'id': 2}
+
+songs.append(songOne)
+songs.append(songTwo)
+songs.append(songThree)
 
 
-#Song route
+
 @app.route('/music')
 def music():
-    return render_template('music.html', songs=songs, numSongs=len(songs), currentSong=0)
+    return render_template('music.html', songs=songs, numSongs=len(songs), currentSong=songOne['id'])
 
 
 if __name__ == '__main__':
