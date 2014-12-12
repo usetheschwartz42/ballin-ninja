@@ -12,10 +12,10 @@ $(function() {
 	{% endfor %}
 	$('[data-toggle="tooltip"]').tooltip();
 	$('i.glyphicon-play').click(function(e) {
-		$('audioPlayer').play();
+		$('audio#audioPlayer').play();
 	});
 	$('i.glyphicon-pause').click(function(e) {
-		$('audioPlayer').pause();
+		$('audio#audioPlayer').pause();
 	});
 	setInterval(cycleArt, 7000);
 });
