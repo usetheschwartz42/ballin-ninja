@@ -11,12 +11,6 @@ $(function() {
 	});
 	{% endfor %}
 	$('[data-toggle="tooltip"]').tooltip();
-	$('i.glyphicon-play').click(function(e) {
-		$('audio#audioPlayer').play();
-	});
-	$('i.glyphicon-pause').click(function(e) {
-		$('audio#audioPlayer').pause();
-	});
 	setInterval(cycleArt, 5000);
 });
 
